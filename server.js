@@ -49,6 +49,17 @@ io.on("connection", function (socket) {
     socket.emit("nuevasala", salas);
     socket.broadcast.emit("nuevasala", salas);
   });
+
+  socket.on("initxat", async function () {
+    let salas = await xatroom.findAll();
+    socket.emit("nuevasala", salas);
+    socket.broadcast.emit("nuevasala", salas);
+    if (salas.length > 0){
+      socket.join(salas[0].xatroom_name);
+      socket.chatroom = salas[0].xatroom_name;
+    }
+  });
+
 });
 
 server.listen(5000);
