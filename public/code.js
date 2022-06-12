@@ -100,6 +100,7 @@
      
     // para cargar el listado de salas la primera vez y seleccionar el valor actual
      socket.emit("initxat");
+     
   
 
 })();
