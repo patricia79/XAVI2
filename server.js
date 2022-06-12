@@ -26,7 +26,7 @@ io.on("connection", function (socket) {
   });
 
   socket.on('chat', function(message) {
-    socket.broadcast.to(message.channel).emit("chat", message);
+    socket.broadcast.to(message.chatroom).emit("chat", message);
 });
 
   socket.on("switchchatroom", function (newchatroom) {
