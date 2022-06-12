@@ -49,6 +49,7 @@ io.on("connection", function (socket) {
     socket.emit("nuevasala", salas);
     socket.broadcast.emit("nuevasala", salas);
   });
+// todos emiten en el primer elemento de la select
 
   socket.on("initxat", async function () {
     let salas = await xatroom.findAll();
